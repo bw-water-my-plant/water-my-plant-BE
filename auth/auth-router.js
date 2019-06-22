@@ -8,8 +8,8 @@ const secrets = require('../config/secrets.js');
 router.post('/register', (req, res) => {
   let user = req.body;
   // hash the password FIRST
-  const hash = bcrypt.hashSync(user.password, 8); // password gets re-hashed 2 ^ 8 times
-  user.password = hash; // <<<<<<<<<<<<<<<<<<<
+  const hash = bcrypt.hashSync(user.password, 10); 
+  user.password = hash; 
   // then save to db
   Users.add(user)
     .then(saved => {
@@ -34,7 +34,7 @@ router.post('/login', (req, res) => {
           token 
         });
       } else {
-        res.status(401).json({ message: 'You shall not pass!' });
+        res.status(401).json({ message: 'Invalid username or password' });
       }
     })
     .catch(error => {
@@ -65,7 +65,7 @@ function generateToken(user) {
   };
 
   const options = {
-    expiresIn: '8h',
+    expiresIn: '1h',
   };
 
   return jwt.sign(payload, secrets.jwtSecret, options)
