@@ -34,7 +34,7 @@ server.use(cors());
 server.use(session(sessionConfig));
 
 server.get('/', (req, res) => {
-  res.send("Welcome to the Motorcitycode API");
+  res.send("Welcome to the Water My Plants API");
 });
 
 server.use('/api/users', usersRouter);
