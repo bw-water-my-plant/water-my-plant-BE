@@ -10,8 +10,8 @@ const authRouter = require('../auth/auth-router.js');
 const server = express();
 
 const sessionConfig = {
-  name: 'motorcitycode', // by default would be sid
-  secret: 'Your secret phrase goes here...',
+  name: 'watermyplants', // by default would be sid
+  secret: 'Water my Plants today, every day',
   resave: false, // if there are no changs to the session, no need to resave
   saveUninitialized:  true, // for GDPR compliance laws against setting cookies, change dynamically in prod
   cookie: {
