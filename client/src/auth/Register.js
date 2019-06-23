@@ -5,14 +5,15 @@ import './login.css';
 
 export default class Login extends React.Component {
   state = {
-    username: 'sam',
-    password: 'pass',
+    username: 'username',
+    password: 'password',
+    phone: '212-123-4567'
   };
 
   render() {
     return (
       <>
-        <h1>Login</h1>
+        <h1>Register</h1>
         <form onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="username">Username</label>
@@ -33,7 +34,17 @@ export default class Login extends React.Component {
             />
           </div>
           <div>
-            <button type="submit">Login</button>
+            <label htmlFor="phone">Phone</label>
+            <input
+              id="phone"
+              value={this.state.phone}
+              onChange={this.handleInputChange}
+              type="text"
+            />
+          </div>
+
+          <div>
+            <button type="submit">Register</button>
           </div>
         </form>
       </>
@@ -48,7 +59,7 @@ export default class Login extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const endpoint = 'http://localhost:3600/api/login';
+    const endpoint = 'http://localhost:3600/api/register';
     axios
       .post(endpoint, this.state)
       .then(res => {

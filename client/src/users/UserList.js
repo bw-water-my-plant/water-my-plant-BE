@@ -24,7 +24,7 @@ class UserList extends React.Component {
   }
 
   componentDidMount() {
-    const endpoint = 'http://localhost:5000/api/users';
+    const endpoint = 'http://localhost:3600/api/users';
 
     axios
       .get(endpoint)
