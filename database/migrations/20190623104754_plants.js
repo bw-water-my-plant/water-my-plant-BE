@@ -18,6 +18,13 @@ exports.up = function(knex) {
       .inTable('users')
       .onDelete('RESTRICT')
       .onUpdate('RESTRICT');
+
+      plants
+      .datetime('schedule', 6);
+
+      plants
+      .timestamp('createdAt')
+      .defaultTo(knex.fn.now());
     });
   };
   
