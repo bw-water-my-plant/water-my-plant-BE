@@ -1,7 +1,7 @@
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('users').truncate()
+  return knex('enter-table-to-truncate').truncate()
     .then(function () {
       // No seed entries, just clean it out
       return ;
