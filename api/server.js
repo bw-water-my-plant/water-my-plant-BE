@@ -6,6 +6,7 @@ const KnexSessionStore = require('connect-session-knex')(session);
 
 const usersRouter = require('../users/users-router.js');
 const authRouter = require('../auth/auth-router.js');
+const plantRouter = require('../plants/plants-router.js');
 
 const server = express();
 
@@ -19,7 +20,7 @@ const sessionConfig = {
     secure: false, // send cookie only over https,false in dev only, set to true in production
     httpOnly: true, // always set to true, it means client JS can't access the cookie. 
   },
-  store: new KnexSessionStore({ // don't forget 'new' here
+  store: new KnexSessionStore({ 
     knex: require('../database/dbConfig.js'),
     tablename: 'sessions',
     sidfieldname: 'sid',
@@ -39,5 +40,6 @@ server.get('/', (req, res) => {
 
 server.use('/api/users', usersRouter);
 server.use('/api', authRouter);
+server.use('/plants', plantRouter);
 
 module.exports = server;
