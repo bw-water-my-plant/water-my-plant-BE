@@ -1,9 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 
+import './login.css';
+
 export default class Login extends React.Component {
   state = {
-    username: 'peter',
+    username: 'sam',
     password: 'pass',
   };
 
