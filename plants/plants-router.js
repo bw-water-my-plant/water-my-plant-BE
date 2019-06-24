@@ -6,8 +6,8 @@ const restricted = require('../auth/restricted.js');
 
 router.get ('/', restricted, (req, res) => {
     Plants.find()
-    .then(cohorts => {
-      res.status(200).json(cohorts);
+    .then(plants => {
+      res.status(200).json(plants);
     }).catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -18,8 +18,8 @@ router.get ('/', restricted, (req, res) => {
     const id = req.params.id;
     Plants
     .findById(id)
-    .then(cohort => {
-      res.status(200).json(cohort);
+    .then(plant => {
+      res.status(200).json(plant);
     })
     .catch(err => {
       res.status(500).json(err);
@@ -27,13 +27,13 @@ router.get ('/', restricted, (req, res) => {
   });
   
   router.post('/', validatePlant, async (req, res) => {
-    const cohortInfo = req.body;
+    const plantInfo = req.body;
       try {
-        const savedPost = await Plants.add(cohortInfo);
+        const savedPost = await Plants.add(plantInfo);
         res.status(201).json(savedPost);
         } catch (err) {
           res.status(500).json({
-          message: 'failed to save cohort', err: err.message
+          message: 'failed to save plant', err: err.message
           });
         }
   });
@@ -69,9 +69,9 @@ router.get ('/', restricted, (req, res) => {
 async function validatePlantId(req, res, next) {
   try {
       const { id } = req.params;
-      const cohort = await Planss.findById(id);
-      if (cohort) {
-          req.cohort = cohort;
+      const plant = await Planss.findById(id);
+      if (plant) {
+          req.plant = plant;
           next();
       } else {
          res.status(404).json({ message: 'Plant not found: invalid id' }); 
