@@ -1,17 +1,10 @@
-# Water My Plants - Backend Server
 
-## Description
-
-Backend API for Water My Plants app. Authentication using JSON Web Tokens (JWTs)
-
-## Instructions
-
-
-https://water-my-plant.herokuapp.com/
-
-Sample user accounts:
-
-[
+exports.seed = function(knex, Promise) {
+  // Deletes ALL existing entries
+  return knex('users').truncate()
+    .then(function () {
+      // Inserts seed entries
+      return knex('users').insert([
         {
          username: 'Tracy', 
          password: '1234',
@@ -32,4 +25,6 @@ Sample user accounts:
           password: '1234',
           phone: '313-123-4568'
          }
-      ]
+      ]);
+    });
+};
