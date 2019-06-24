@@ -9,6 +9,10 @@ Backend API for Water My Plants app. Authentication using JSON Web Tokens (JWTs)
 
 https://water-my-plant.herokuapp.com/
 
+register: POST https://water-my-plant.herokuapp.com/api/register
+
+login: POST https://water-my-plant.herokuapp.com/api/login
+
 Sample user accounts:
 
 [
@@ -22,14 +26,5 @@ Sample user accounts:
          password: '1234',
          phone: '313-123-4568'
         },
-        {
-         username: 'Sammy', 
-         password: '1234',
-         phone: '313-123-4568'
-        },
-        {
-          username: 'Timmy', 
-          password: '1234',
-          phone: '313-123-4568'
-         }
+      
       ]
