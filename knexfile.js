@@ -14,17 +14,11 @@ module.exports = {
       },
     },
     migrations: {
-      directory: __dirname +  '/database/migrations',
+      directory: './database/migrations',
     },
     seeds: {
-      directory: __dirname + '/database/seeds',
-    // migrations: {
-    //   directory: './database/migrations',
-    // },
-    // seeds: {
-    //   directory: './database/seeds',
-    // },
-  }
+      directory: './database/seeds',
+    },
   },
   testing: {
     client: 'sqlite3',
