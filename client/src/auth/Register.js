@@ -59,7 +59,8 @@ export default class Login extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const endpoint = 'http://localhost:3600/api/register';
+    //const endpoint = 'http://localhost:3600/api/register';
+    const endpoint = 'https://water-my-plant.herokuapp.com/api/register';
     axios
       .post(endpoint, this.state)
       .then(res => {

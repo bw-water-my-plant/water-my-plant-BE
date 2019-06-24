@@ -5,8 +5,8 @@ import './login.css';
 
 export default class Login extends React.Component {
   state = {
-    username: 'sam',
-    password: 'pass',
+    username: '',
+    password: '',
   };
 
   render() {
@@ -48,7 +48,7 @@ export default class Login extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const endpoint = 'http://localhost:3600/api/login';
+    const endpoint = 'https://water-my-plant.herokuapp.com/api/login';
     axios
       .post(endpoint, this.state)
       .then(res => {

@@ -5,12 +5,15 @@ import './App.css';
 import Login from './auth/Login';
 import UserList from './users/UserList';
 import Register from './auth/Register';
+import Plants from './plants/Plants';
+
 class App extends React.Component {
   render() {
     return (
       <>
         <header>
           <nav>
+            <NavLink to="/plants">Plants</NavLink>
             <NavLink to="/users">Users</NavLink>
             <NavLink to="/login">Login</NavLink>
             <NavLink to="/register">Register</NavLink>
@@ -18,6 +21,7 @@ class App extends React.Component {
           </nav>
         </header>
         <main>
+          <Route path="/plants" component={Plants} />
           <Route path="/users" component={UserList} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
