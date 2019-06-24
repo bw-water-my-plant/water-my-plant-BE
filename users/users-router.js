@@ -5,7 +5,10 @@ const restricted = require('../auth/restricted.js');
 
 const router = express.Router();
 const bcrypt = require('bcryptjs');
-router.get('/', restricted, (req, res) => {
+
+//restricted,
+
+router.get('/',  (req, res) => {
   Users.find()
     .then(users => {
       res.json(users);
