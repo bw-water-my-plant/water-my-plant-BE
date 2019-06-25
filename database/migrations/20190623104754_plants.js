@@ -6,7 +6,6 @@ exports.up = function(knex) {
       plants
         .string('plantname', 128)
         .notNullable()
-        .unique();
 
       plants.string('plantdesc', 255).notNullable();
 
