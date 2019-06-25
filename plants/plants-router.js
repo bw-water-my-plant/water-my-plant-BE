@@ -3,7 +3,6 @@ const router = express.Router();
 
 const Plants = require('./plants-model.js');
 const restricted = require('../auth/restricted.js');
-const twilio = require('../Twilio/twilio.js');
 
 router.get ('/', restricted, (req, res) => {
     Plants.find()
